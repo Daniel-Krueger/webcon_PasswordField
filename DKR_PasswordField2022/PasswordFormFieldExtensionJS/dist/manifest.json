@@ -1,0 +1,11 @@
+{
+  "packageName": "PasswordFormFieldExtensionJS",
+  "solutionId": "9e084d0e-f6cc-40f1-9c69-1519024dafc1",
+  "files": {
+    "component": "./src/CustomControlComponent.js",
+    "emptyValueValidator": "./src/EmptyValueValidator.js",
+    "additionalValidator": "./src/AdditionalValidator.js",
+    "assets": {     
+    }
+  }
+}

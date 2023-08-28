@@ -1,6 +1,6 @@
 ﻿using WebCon.WorkFlow.SDK.ConfigAttributes;
 
-namespace DKR_PasswordField2023
+namespace DKR_PasswordField2022
 {
     public class PasswordEncryptionConfig
     {

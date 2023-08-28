@@ -1,0 +1,34 @@
+{
+  "scripts": {
+    "build": "npx gulp",
+    "check": "npx gulp check",
+    "format": "npx gulp format",
+    "lint": "npx gulp lint",
+    "postinstall": "npm run-script build",
+    "start": "npx js-custom-control-workbench",
+    "watch": "npx gulp watch",
+    "publish-sdk": "npx publish-sdk"
+  },
+  "scripts-description": {
+    "postinstall": "The script runs the build process of the Form Field Extension JS after running npm install command",
+    "start": "The script runs built Form Field Extension JS inside Workbench that emulates WEBCON BPS Modern Form where you can easily test your extensions to speed up development",
+    "publish-sdk": "The script generates manifest.json file of the Form Field Extension JS on the fly and creates the installation package ready to import in WEBCON BPS Designer Studio"
+  },
+  "dependencies": {
+    "core-js": "^3.3.2",
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6"
+  },
+  "devDependencies": {
+    "@webcon/js-custom-control-build": "^1.0.0",
+    "@webcon/js-custom-control-workbench": "^1.0.0",
+    "@webcon/publish-sdk": "^1.0.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-react": "^7.14.3",
+    "gulp": "^4.0.2"
+  },
+  "private": true
+}

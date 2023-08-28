@@ -3,17 +3,16 @@ using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using WebCon.WorkFlow.SDK.Common.Model;
 using WebCon.WorkFlow.SDK.FormFieldPlugins;
 using WebCon.WorkFlow.SDK.FormFieldPlugins.Model;
 
-namespace DKR_PasswordField2023
+namespace DKR_PasswordField2022
 {
     public class PasswordFormFieldLogic : FormFieldExtension<PasswordFormFieldLogicConfig>
     {
         public const string PasswordFieldPrefix = "Encrypted:";
-        public override Task OnBeforeElementSaveAsync(BeforeSaveParams<FormFieldExtensionContext> args)
+        public override void OnBeforeElementSave(BeforeSaveParams<FormFieldExtensionContext> args)
         {
             if (Configuration.PasswordEncryptionConfig.Key.Length != 24)
             {
@@ -35,7 +34,8 @@ namespace DKR_PasswordField2023
             if (password.Contains("encrypted"))
             {
                 args.Context.PluginLogger.AppendDebug("Field value is of type json, no further processing");
-                return base.OnBeforeElementSaveAsync(args);
+                base.OnBeforeElementSave(args);
+                return;
             }
             args.Context.PluginLogger.AppendDebug("Field value is simple text -> it's a new password");
             if (password.Length < 6)
@@ -87,7 +87,7 @@ namespace DKR_PasswordField2023
                 args.Context.PluginLogger.AppendInfo($"{ex.Message}:{ex.HResult}:{ex.StackTrace}");
             }
 
-            return base.OnBeforeElementSaveAsync(args);
+            base.OnBeforeElementSave(args);
         }
 
     }

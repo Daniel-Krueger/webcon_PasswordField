@@ -5,9 +5,9 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DKR_PasswordField2023")]
+[assembly: AssemblyTitle("DKR_PasswordField2022")]
 [assembly: AssemblyDescription("WEBCON BPS Extensions")]
-[assembly: AssemblyProduct("DKR_PasswordField2023")]
+[assembly: AssemblyProduct("DKR_PasswordField2022")]
 
 
 // Setting ComVisible to false makes the types in this assembly not visible 
@@ -16,7 +16,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("90f7cbb2-ce20-48f5-8c94-0c276d390ed2")]
+[assembly: Guid("84bfc809-db39-4e30-a2b4-33179d2dd87e")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -25,6 +25,6 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("1.0.0.80")]
-[assembly: AssemblyFileVersion("1.0.0.74")]
+[assembly: AssemblyVersion("1.0.0.6")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: AssemblyInformationalVersion("1.0.0.0")]
