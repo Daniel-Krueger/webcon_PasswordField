@@ -11,8 +11,10 @@ namespace DKR_PasswordField2022
 {
     public class PasswordFormFieldLogic : FormFieldExtension<PasswordFormFieldLogicConfig>
     {
-        public const string PasswordFieldPrefix = "Encrypted:";
-        public override void OnBeforeElementSave(BeforeSaveParams<FormFieldExtensionContext> args)
+        /// <summary>
+        /// Originally I wanted to use OnBeforeElementSaveAsync but when saving a new instance, the original password was visible in the history.
+        /// </summary>
+        public override void Validate(ControlValidationParams<FormFieldExtensionContext> args)
         {
             if (Configuration.PasswordEncryptionConfig.Key.Length != 24)
             {
@@ -20,7 +22,6 @@ namespace DKR_PasswordField2022
                 throw new ApplicationException(Configuration.Translation.List.KeyLengthNotMetErrorMessage);
             }
             args.Context.PluginLogger.AppendDebug("Key length ok");
-
 
             string password = args.Context.CurrentFormField.GetValue().ToString();
             if (string.IsNullOrEmpty(password))
@@ -34,7 +35,7 @@ namespace DKR_PasswordField2022
             if (password.Contains("encrypted"))
             {
                 args.Context.PluginLogger.AppendDebug("Field value is of type json, no further processing");
-                base.OnBeforeElementSave(args);
+                base.Validate(args);
                 return;
             }
             args.Context.PluginLogger.AppendDebug("Field value is simple text -> it's a new password");
@@ -86,9 +87,7 @@ namespace DKR_PasswordField2022
             {
                 args.Context.PluginLogger.AppendInfo($"{ex.Message}:{ex.HResult}:{ex.StackTrace}");
             }
-
-            base.OnBeforeElementSave(args);
+            base.Validate(args);
         }
-
     }
 }
